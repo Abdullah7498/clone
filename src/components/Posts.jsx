@@ -136,7 +136,7 @@ const Posts = () => {
               Create Post
             </button>
           </div>
-          <div>
+          <div >
             {posts && posts.length > 0 ? (
               posts.map((post) => <RenderPost key={post._id} post={post} />)
             ) : (
