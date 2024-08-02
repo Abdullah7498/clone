@@ -48,6 +48,25 @@ export const deletePost = createAsyncThunk(
   }
 );
 
+export const LikePost = createAsyncThunk(
+  "post/likepost",
+  async (data, { rejectWithValue }) => {
+    try {
+      const res = await Api.post(`/posts/${data?.postId}/like/`, {
+        userId: data?.userId,
+      });
+      return res.data;
+    } catch (error) {
+      console.error(error);
+      return rejectWithValue(
+        error.response
+          ? error.response.data
+          : { message: "An unknown error occurred" }
+      );
+    }
+  }
+);
+
 const PostSlice = createSlice({
   name: "post",
   initialState: {

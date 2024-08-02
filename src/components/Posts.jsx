@@ -136,9 +136,15 @@ const Posts = () => {
               Create Post
             </button>
           </div>
-          <div >
+          <div>
             {posts && posts.length > 0 ? (
-              posts.map((post) => <RenderPost key={post._id} post={post} />)
+              posts.map((post) => (
+                <RenderPost
+                  key={post._id}
+                  userId={post?.user?._id}
+                  post={post}
+                />
+              ))
             ) : (
               <p className="text-gray-500 text-center">No Posts</p>
             )}
