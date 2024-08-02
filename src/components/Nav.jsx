@@ -43,7 +43,7 @@ const UserProfile = ({ user }) => {
           className="h-8 w-8 rounded-full"
           src={
             user?.profilePhoto
-              ? `http://localhost:3000/${user?.profilePhoto}`
+              ? `https://server-rhyy.onrender.com/${user?.profilePhoto}`
               : "https://via.placeholder.com/50"
           }
           alt="User avatar"

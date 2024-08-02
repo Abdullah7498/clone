@@ -10,7 +10,7 @@ const RenderPost = ({ post }) => {
       <p className="text-gray-700 mb-2">{post.description}</p>
       {post.image && (
         <img
-          src={`http://localhost:3000/uploads/${post.image}`}
+          src={`https://server-rhyy.onrender.com/${post.image}`}
           alt="Post"
           className="w-full h-[10vh]"
         />
