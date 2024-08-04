@@ -66,6 +66,25 @@ export const LikePost = createAsyncThunk(
     }
   }
 );
+export const AddComment = createAsyncThunk(
+  "post/commentpost",
+  async (data, { rejectWithValue }) => {
+    try {
+      const res = await Api.post(`/comment/${data?.postId}`, {
+        userId: data?.userId,
+        text: data?.text,
+      });
+      return res.data;
+    } catch (error) {
+      console.error(error);
+      return rejectWithValue(
+        error.response
+          ? error.response.data
+          : { message: "An unknown error occurred" }
+      );
+    }
+  }
+);
 
 const PostSlice = createSlice({
   name: "post",

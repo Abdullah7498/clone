@@ -2,14 +2,21 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Api } from "../../api/Api";
 import toast from "react-hot-toast";
 
-export const LoginUser = createAsyncThunk("Login", async (data) => {
-  try {
-    const res = await Api.post("/login", data);
-    return res.data;
-  } catch (err) {
-    toast.error(err.response.data.error);
+export const LoginUser = createAsyncThunk(
+  "Login",
+  async (data, { rejectWithValue }) => {
+    try {
+      const res = await Api.post("/login", data);
+      return res.data;
+    } catch (err) {
+      toast.error(err.response.data.error);
+
+      return rejectWithValue(
+        err.response ? err.response.data : "Network Error"
+      );
+    }
   }
-});
+);
 export const SignUpUser = createAsyncThunk(
   "auth/signup",
   async (formData, { rejectWithValue }) => {
