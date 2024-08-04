@@ -127,7 +127,7 @@ const RenderPost = ({ post, userId }) => {
                   <div className="flex items-center mb-2">
                     <img
                       src={
-                        `http://localhost:3000/${comment.user.profilePhoto}` ||
+                        `${Api}/${comment.user.profilePhoto}` ||
                         "https://via.placeholder.com/32"
                       }
                       alt={comment.user.username}
