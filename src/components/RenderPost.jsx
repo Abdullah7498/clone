@@ -127,10 +127,10 @@ const RenderPost = ({ post, userId }) => {
                   <div className="flex items-center mb-2">
                     <img
                       src={
-                        `${Api}/${comment.user.profilePhoto}` ||
+                        `https://server-rhyy.onrender.com/${comment.user.profilePhoto}` ||
                         "https://via.placeholder.com/32"
                       }
-                      alt={comment.user.username}
+                      // alt={comment.user.username}
                       className="w-6 h-6 rounded-full mr-2"
                     />
                     <span className="font-semibold text-sm text-gray-700">
